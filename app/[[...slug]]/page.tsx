@@ -3,6 +3,7 @@ import { draftMode } from 'next/headers';
 import get from 'lodash/get';
 
 import { BlockRenderer } from '@/components/Renderer';
+import { JobTypeSelector } from '@/components/JobTypeSelector';
 import { getPages, getPage, getGlobalConfig } from '@/lib/api';
 
 export const dynamicParams = false;
@@ -35,6 +36,9 @@ export default async function Page({
       <div className="w-full h-full flex flex-col">
         {banner && <BlockRenderer block={banner} />}
         {navigation && <BlockRenderer block={navigation} />}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <JobTypeSelector className="max-w-xs" />
+        </div>
         <main className="grow">
           <BlockRenderer block={sections} />
         </main>
